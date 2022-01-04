@@ -1,5 +1,3 @@
-import javax.lang.model.type.IntersectionType;
-
 public class Main {
     public static void main(String[] args) {
         Point point1 = new Point(0,0);
