@@ -23,22 +23,37 @@ class Segment {
         return new Point(midX, midY);
     }
 
-    double intersection(Segment s1, Segment s2) {
-        double x1 = 0;
-        double x2 = 0;
-        double x3 = 0;
-        double x4 = 0;
-        double y1 = 0;
-        double y2 = 0;
-        double y3 = 0;
-        double y4 = 0;
-        Point p1 = new Point(x1, y1);
-        Point p2 = new Point(x2, y2);
-        Point p3 = new Point(x3, y3);
-        Point p4 = new Point(x4, y4);
-        return p1.getX() * p2.getY() * p3.getX() * p4.getY();
+    Point intersection(Segment  another) {
+        double x1 = this.start.getX();
+        double x2 = this.end.getX();
+        double x3 = another.start.getX();
+        double x4 = another.end.getX();
+        double y1 = this.start.getY();
+        double y2 = this.end.getY();
+        double y3 = another.start.getY();
+        double y4 = another.end.getY();
+        double d =(x1-x2)*(y3-y4)-(y1-y2)*(x3-x4);
+        double px =((x1*y2-y1*x2)*(x3-x4)-(x1-x2)*((x3*y4)-(y3*x4)))/d;
+        double py =((x1*y2-y1*x2)*(y3-y4)-(y1-y2)*((x3*y4)-(y3*x4)))/d;
+        return   new Point(px,py);
+
+
 
     }
+    ////        double x1;
+////        double x2;
+////        double x3;
+////        double x4;
+////        double y1;
+////        double y2;
+////        double y3;
+////        double y4;
+//        Point p1 = new Point(x1, y1);
+//        Point p2 = new Point(x2, y2);
+//        Point p3 = new Point(x3, y3);
+//        Point p4 = new Point(x4, y4);
 
+    //-(p1.getX() - p2.getX())*(p3.getX() * p4.getY()-p3.getY() * p4.getX()));
+    // /((p1.getX() - p2.getX())*(p3.getY() - p4.getY())-(p1.getY() - p2.getY())*(p3.getX() - p4.getX()));
 
 }
